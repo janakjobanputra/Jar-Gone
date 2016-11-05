@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     message = 'Welcome to Jar-Gone'
-    return render_template('home.html', message=message)
+    return render_template('index.html', message=message)
 
 
 if __name__ == '__main__':
