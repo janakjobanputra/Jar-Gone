@@ -1,7 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 
 # Home page
@@ -9,6 +9,11 @@ app = Flask(__name__)
 def home():
     message = 'Welcome to Jar-Gone'
     return render_template('index.html', message=message)
+
+@app.route('/getTxt')
+def getTxt():
+	# print ("GOT HERE")
+	return send_from_directory("/data", "sampleTextBlock.txt")
 
 
 if __name__ == '__main__':

@@ -831,6 +831,26 @@ pre code {
   margin-left: -15px;
 }
 
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
+}
+
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -2649,6 +2669,7 @@ input[type="button"].btn-block {
 
 .collapse.in {
   display: block;
+  width: 40px;
 }
 
 .collapsing {
@@ -4302,7 +4323,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   border: 1px solid transparent;
 }
 
@@ -5572,7 +5593,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel {
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   background-color: #ffffff;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -5581,7 +5602,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-body {
-  padding: 0px;
+  padding: 15px;
 }
 
 .panel-body:before,
