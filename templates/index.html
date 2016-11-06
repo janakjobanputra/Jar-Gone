@@ -157,25 +157,25 @@
                                 <div id="demo" class="collapse" style="max-height: 250px; overflow: scroll;">
                                     <div class="panel-body" >
 
-                                        <div id="def0" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def0" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def1" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def1" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def2" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def2" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def3" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def3" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def4" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def4" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def5" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def5" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def6" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def6" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def7" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def7" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def8" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def8" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
-                                        <div id="def9" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
+                                        <div id="def9" class="alert alert-success" onmouseover="hoverAction(this.innerHTML)" onmouseout="offHoverAction(this.innerHTML)"> </div>
 
                                     </div>
                                 </div>
@@ -221,8 +221,8 @@
             $('#butD').show();
              $("#butR").hide();
              //$("#defTitle").css("width","350px");
-             console.log($("#defTitle").css("width"));
-             console.log("UO");
+             //console.log($("#defTitle").css("width"));
+            // console.log("UO");
              //$(".panel-body").fadeOut();
              //document.getElementById("leftTable").className = "col-md-11"
              //document.getElementById("rightTable").className = "col-md-1"
@@ -305,14 +305,14 @@ function runPyScript(input){
     j = 0;
     var newTextBlock = "";
     for(i = 0; i < sentences.length; i ++) {
-        console.log(sentences[i]);
+        //console.log(sentences[i]);
         
         for(m = 0; m < jsonDefns.length; m++) {
-            console.log(jsonDefns[m].word);
+            //console.log(jsonDefns[m].word);
             if((sentences[i].indexOf(jsonDefns[m].word) !== -1)) {
                 var foundIndex = sentences[i].indexOf(jsonDefns[m].word);
-                var temp = sentences[i].substring(0, foundIndex-1) + " <b id="+jsonDefns[m].word+"> " + sentences[i].substring(foundIndex, foundIndex + jsonDefns[m].word.length) + " </b> " + sentences[i].substring(foundIndex + jsonDefns[m].word.length + 1, sentences[i].length);
-                console.log(temp);
+                var temp = sentences[i].substring(0, foundIndex-1) + " <span id="+jsonDefns[m].word+"> " + sentences[i].substring(foundIndex, foundIndex + jsonDefns[m].word.length) + " </span> " + sentences[i].substring(foundIndex + jsonDefns[m].word.length + 1, sentences[i].length);
+                //console.log(temp);
                 sentences[i] = temp;
             }          
         }
@@ -346,9 +346,20 @@ function runPyScript(input){
 
 <script type="text/javascript">
 function hoverAction(word) {
-    console.log(word);
-    word.innerHTML.split(" :");
-    console.log(word[0]);
+    var splitting;
+    splitting = word.split(":");
+    console.log("splitting on", splitting);
+    var id = "#"+splitting[0];
+    $(id).css("font-weight", "bold");
+    //console.log(splitting[0]);
+}
+
+function offHoverAction(word) {
+    var splitting;
+    splitting = word.split(":");
+    console.log("splitting off", splitting);
+    var id = "#"+splitting[0];
+    $(id).css("font-weight", "");
 }
 </script>
 </body>
