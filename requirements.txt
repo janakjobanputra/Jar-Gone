@@ -5,3 +5,4 @@ Werkzeug>=0.9.4
 itsdangerous>=0.23
 wsgiref>=0.1.2
 gunicorn>=19.6.0
+Flask_Cors>=3.0.2
