@@ -157,25 +157,25 @@
                                 <div id="demo" class="collapse" style="max-height: 250px; overflow: scroll;">
                                     <div class="panel-body" >
 
-                                        <div id="def0" class="alert alert-success"> </div>
+                                        <div id="def0" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def1" class="alert alert-success"> </div>
+                                        <div id="def1" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def2" class="alert alert-success"> </div>
+                                        <div id="def2" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def3" class="alert alert-success"> </div>
+                                        <div id="def3" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def4" class="alert alert-success"> </div>
+                                        <div id="def4" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def5" class="alert alert-success"> </div>
+                                        <div id="def5" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def6" class="alert alert-success"> </div>
+                                        <div id="def6" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def7" class="alert alert-success"> </div>
+                                        <div id="def7" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def8" class="alert alert-success"> </div>
+                                        <div id="def8" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
-                                        <div id="def9" class="alert alert-success"> </div>
+                                        <div id="def9" class="alert alert-success" onmouseover="hoverAction(this)"> </div>
 
                                     </div>
                                 </div>
@@ -240,27 +240,6 @@
          });
 </script>
 
-<script type="text/javascript">
-    $.ajax({
-        type: "GET",
-        url: "./static/data/test.json",
-        success:function(data) {
-            var json = data;
-            console.log(json.length)
-            console.log("json", json[0].word);
-            for(i = 0; i < json.length; i++) {
-                document.getElementById("def"+i).innerHTML = json[i].word + " : " + json[i].defn;
-            }
-            return data;
-        },
-        async: false,
-    });
-    // $.getJSON("./static/data/test.json", function(defStruct) {
-    //     console.log("json");
-    //     console.log(defStruct);
-    //     console.log("length", defStruct.length);
-    // });
-</script>
 
 <script type="text/javascript">
 //console.log("run py");
@@ -274,8 +253,20 @@ function runPyScript(input){
     }
     //console.log("ran the py");
     var impPhrases = ["presence", "No", "no"];
-    
-    var textBlock;
+    var textBlock, jsonDefns;
+
+    $.ajax({
+        type: "GET",
+        url: "./static/data/test.json",
+        success:function(data) {
+            jsonDefns = data;
+            // console.log("json", json[0].word);
+            
+            return data;
+        },
+        async: false,
+    });
+
     $.ajax({
         type: "GET",
         url: "http://localhost:5000/getTxt",
@@ -287,12 +278,17 @@ function runPyScript(input){
         async: false,
     });
 
+    for(i = 0; i < jsonDefns.length; i++) {
+        document.getElementById("def"+i).innerHTML = jsonDefns[i].word + " : " + jsonDefns[i].defn;
+    }
+
     //console.log("textBlock outside", textBlock);
 
     var sentences = [];
     var currentStream = "";
     var j = 0;
     var k = 0;
+    var m = 0;
     for (i = 0; i < textBlock.length; i++) {
         if(textBlock[i] == ".") {
             sentences[k] = currentStream;
@@ -305,9 +301,37 @@ function runPyScript(input){
             currentStream += textBlock[i];
         }
     }
-    document.getElementById("routine").innerHTML = textBlock;
-
+    // document.getElementById("routine").innerHTML = textBlock;
+    j = 0;
+    var newTextBlock = "";
+    for(i = 0; i < sentences.length; i ++) {
+        console.log(sentences[i]);
+        
+        for(m = 0; m < jsonDefns.length; m++) {
+            console.log(jsonDefns[m].word);
+            if((sentences[i].indexOf(jsonDefns[m].word) !== -1)) {
+                var foundIndex = sentences[i].indexOf(jsonDefns[m].word);
+                var temp = sentences[i].substring(0, foundIndex-1) + " <b id="+jsonDefns[m].word+"> " + sentences[i].substring(foundIndex, foundIndex + jsonDefns[m].word.length) + " </b> " + sentences[i].substring(foundIndex + jsonDefns[m].word.length + 1, sentences[i].length);
+                console.log(temp);
+                sentences[i] = temp;
+            }          
+        }
+        // if((sentences[i].indexOf(jsonDefns[m].word) !== -1)) {
+        //     var foundIndex = sentences[i].indexOf(jsonDefns[m].word);
+        //     var temp = sentences[i].substring(0, foundIndex-1) + "<b>" + sentences[i].substring(foundIndex, foundIndex + jsonDefns[m].word.length) + "</b>" + sentences[i].substring(foundIndex + jsonDefns[m].word.length + 1, sentences[i].length);
+        //     console.log(temp);
+        //     m = 0;
+        //     i = 0;
+        // }
+        // else {
+        //     m++;
+        //     i = i - 1;
+        //     console.log("nothing");
+        // }
+        newTextBlock += sentences[i] + " ";  
+    }
     for (i = 0; i < sentences.length && j < impPhrases.length; i++) {
+
         if(sentences[i].indexOf(impPhrases[j]) !== -1) {
 
             document.getElementById("list"+j).innerHTML = sentences[i];
@@ -315,7 +339,17 @@ function runPyScript(input){
             i = -1;
         }
     }
+
+    $('#routine').append(newTextBlock);
             // Chart.defaults.global.responsive = true;
+</script>
+
+<script type="text/javascript">
+function hoverAction(word) {
+    console.log(word);
+    word.innerHTML.split(" :");
+    console.log(word[0]);
+}
 </script>
 </body>
 </html>
