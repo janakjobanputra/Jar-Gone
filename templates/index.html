@@ -51,7 +51,7 @@
                   <span class="heading"> After Visit Summary </span>
                 </div>
                 <div class="navbar-right">
-                    <span class="name"> Patient Name &nbsp;&nbsp;&nbsp; ID: 123456789 </span>
+                    <span class="name"> Jar-Jar Gone &nbsp;&nbsp;&nbsp; ID: 6244825472 </span>
                 </div>
             </nav>
         </header>
@@ -68,7 +68,7 @@
                     <div class = "col-md-10">
                       <section class="panel">
                         <header class="panel-heading" style = "padding: 5px">
-                          Important
+                          <b>Important</b>
                         </header>
                         <div class="panel-body">
                             <li id="list0">  </li>
@@ -87,7 +87,7 @@
                         <div class = "col-md-5">
                             <section class="panel">
                                 <header class="panel-heading" style = "padding: 10px">
-                                    Appointment Information
+                                    <b>Appointment Information</b>
                                 </header>
                                 <div class="panel-body">
                                     <div class = "col-md-3">
@@ -96,9 +96,9 @@
                                         Dpt Phone:
                                     </div>
                                     <div class = "col-md-3">
-                                        bakhfgkajhdsfkjahk
-                                        akjsdhfakjhdsfkjah
-                                        (123) 456-7890
+                                        Dr. M Smith
+                                        Dermatology
+                                        (123)4567890
                                     </div>
                                 </div>
                             </section>
@@ -106,7 +106,7 @@
                         <div class = "col-md-5">
                             <section class = "panel">
                                 <header class="panel-heading" style = "padding: 10px">
-                                    Vital Signs
+                                    <b>Vital Signs</b>
                                 </header>
                                 <div class="panel-body">
                                     <div class = "col-md-1">
@@ -135,7 +135,7 @@
                             <div id="leftTable" class="mainTextBody">
                               <section class="panel">
                                   <header class="panel-heading" style = "padding: 10px">
-                                      Routine Checkup
+                                      <b>Routine Checkup</b>
                                   </header>
                                   <div class="panel-body">
                                     <p id="routine"> </p>
@@ -150,21 +150,32 @@
                           <div class="definitions">
                             <section class="panel">
                                 <header id="defTitle" class="panel-heading" style = "padding: 10px">
-                                    Definitions &nbsp;&nbsp;
+                                    <b>Definitions</b> &nbsp;&nbsp;
                                     <button id="butD" class = "glyphicon glyphicon-chevron-down" data-toggle="collapse" data-target="#demo"> </button>
                                     <button id="butR" class="glyphicon glyphicon-chevron-right" data-toggle="collapse" data-target="#demo"> </button>
                                 </header>
-                                <div id="demo" class="collapse">
-                                    <div class="panel-body">
+                                <div id="demo" class="collapse" style="max-height: 250px; overflow: scroll;">
+                                    <div class="panel-body" >
 
-                                        <div class="alert alert-block alert-danger">
+                                        <div id="def0" class="alert alert-success"> </div>
 
-                                            <strong>Oh snap!</strong> Change a few things up and try submitting again.
-                                        </div>
-                                        <div class="alert alert-success">
+                                        <div id="def1" class="alert alert-success"> </div>
 
-                                            <strong>Well done!</strong> You successfully read this important alert message.
-                                        </div>
+                                        <div id="def2" class="alert alert-success"> </div>
+
+                                        <div id="def3" class="alert alert-success"> </div>
+
+                                        <div id="def4" class="alert alert-success"> </div>
+
+                                        <div id="def5" class="alert alert-success"> </div>
+
+                                        <div id="def6" class="alert alert-success"> </div>
+
+                                        <div id="def7" class="alert alert-success"> </div>
+
+                                        <div id="def8" class="alert alert-success"> </div>
+
+                                        <div id="def9" class="alert alert-success"> </div>
 
                                     </div>
                                 </div>
@@ -230,7 +241,29 @@
 </script>
 
 <script type="text/javascript">
-console.log("run py");
+    $.ajax({
+        type: "GET",
+        url: "./static/data/test.json",
+        success:function(data) {
+            var json = data;
+            console.log(json.length)
+            console.log("json", json[0].word);
+            for(i = 0; i < json.length; i++) {
+                document.getElementById("def"+i).innerHTML = json[i].word + " : " + json[i].defn;
+            }
+            return data;
+        },
+        async: false,
+    });
+    // $.getJSON("./static/data/test.json", function(defStruct) {
+    //     console.log("json");
+    //     console.log(defStruct);
+    //     console.log("length", defStruct.length);
+    // });
+</script>
+
+<script type="text/javascript">
+//console.log("run py");
 
 function runPyScript(input){
         $.ajax({
@@ -239,8 +272,8 @@ function runPyScript(input){
             async: false,
         });
     }
-    console.log("ran the py");
-    var impPhrases = ["Hello my", "This is", "Woohoo"];
+    //console.log("ran the py");
+    var impPhrases = ["presence", "No", "no"];
     
     var textBlock;
     $.ajax({
@@ -248,13 +281,13 @@ function runPyScript(input){
         url: "http://localhost:5000/getTxt",
         success:function(data) {
             textBlock = data;
-            console.log("textBlock", textBlock);
+            //console.log("textBlock", textBlock);
             return data;
         },
         async: false,
     });
 
-    console.log("textBlock outside", textBlock);
+    //console.log("textBlock outside", textBlock);
 
     var sentences = [];
     var currentStream = "";

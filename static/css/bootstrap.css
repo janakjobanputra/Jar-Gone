@@ -5582,7 +5582,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-body {
-  padding: 0px;
+  padding: 0px; 
 }
 
 .panel-body:before,
