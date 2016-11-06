@@ -111,7 +111,9 @@ body.fixed .wrapper {
 }
 /* Content */
 .content {
-  padding: 20px 15px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   background: #f0f3f4;
   overflow: auto;
 }
@@ -3206,6 +3208,14 @@ vertical-align: top;
 .mainTextBody {
   margin-left: 10px;
   margin-right: 10px;
+}
+.heading {
+  font-size: 30px;
+  padding-left: 10px;
+}
+.name {
+  font-size: 30px;
+  padding-right: 10px;
 }
 .definitions {
   border:none;

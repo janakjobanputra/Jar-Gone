@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Director | Dashboard</title>
+    <title> Portal Demo </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
@@ -49,8 +49,11 @@
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
+                <div class="navbar-left">
+                  <span class="heading"> After Visit Summary </span>
+                </div>
                 <div class="navbar-right">
-                    <span> Patient Name </span>
+                    <span class="name"> Patient Name </span>
                 </div>
             </nav>
         </header>
@@ -66,6 +69,19 @@
                       <section class="panel">
                         <header class="panel-heading">
                           Important
+                        </header>
+                        <div class="panel-body">
+                        </div>
+                    </section>
+                    </div>
+                </section>
+
+                <section class="content">
+
+                    <div class="row" style="margin-bottom:5px">
+                      <section class="panel">
+                        <header class="panel-heading">
+                          Vital Signs
                         </header>
                         <div class="panel-body">
                         </div>
@@ -209,10 +225,6 @@
                         }
                     ]
                 };
-            new Chart(document.getElementById("linechart").getContext("2d")).Line(data,{
-                responsive : true,
-                maintainAspectRatio: false,
-            });
 
             });
             // Chart.defaults.global.responsive = true;
