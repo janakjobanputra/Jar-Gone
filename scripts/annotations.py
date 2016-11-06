@@ -18,9 +18,9 @@ def get_definitions(text_to_annotate):
 
     # Annotate each word if not a stop word
     for word in words:
-        print "** "+word+" **"
+        # print "** "+word+" **"
         formatted_word = word.replace(",", "").replace(".", "") .lower()
-        print "** "+formatted_word+" **"
+        # print "** "+formatted_word+" **"
 
         if not formatted_word in stop_words:
             r = requests.get(dictionary_api+formatted_word+apikey)
@@ -37,20 +37,22 @@ def get_definitions(text_to_annotate):
                 for child in root.findall('entry'):
                     key = child.get('id')
                     value = child.find('def/sensb/sens/dt').text
-                    print (key, value)
+                    # print (key, value)
 
                     annotation_dict[key] = value
                 # print annotation_dict
 
     annotations.append(annotation_dict)
-    print json.dumps(annotations)
+    # print json.dumps(annotations)
+
+    return annotations
 
 
 # TEST - open file
 def open_file():
     with open('medical_consult.txt') as data_file:
         lines = data_file.read()
-        print "Lines: ", lines
+        # print "Lines: ", lines
         data_file.close()
         return lines
 
