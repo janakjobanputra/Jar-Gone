@@ -831,26 +831,6 @@ pre code {
   margin-left: -15px;
 }
 
-.row:before,
-.row:after {
-  display: table;
-  content: " ";
-}
-
-.row:after {
-  clear: both;
-}
-
-.row:before,
-.row:after {
-  display: table;
-  content: " ";
-}
-
-.row:after {
-  clear: both;
-}
-
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -4322,7 +4302,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   border: 1px solid transparent;
 }
 
@@ -5592,7 +5572,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   background-color: #ffffff;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -5601,7 +5581,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-body {
-  padding: 15px;
+  padding: 0px;
 }
 
 .panel-body:before,
