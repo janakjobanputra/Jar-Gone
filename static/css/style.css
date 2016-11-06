@@ -3234,11 +3234,6 @@ vertical-align: top;
   padding-right: 12px;
 }
 
-#defTitle {
-  width: 300px;
-  position: relative;
-}
-
 .panel-heading {
   border-bottom: 0px solid #eee;
   background-color: #FAFAFA;

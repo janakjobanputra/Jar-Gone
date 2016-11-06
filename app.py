@@ -13,7 +13,7 @@ def home():
 
 @app.route('/getTxt')
 def getTxt():
-	# print ("GOT HERE")
+	#print ("GOT HERE")
 	return send_from_directory("/data", "sampleTextBlock.txt")
 
 @app.route('/getAnnotations')

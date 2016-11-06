@@ -26,7 +26,7 @@
     <link href="./static/css/iCheck/all.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
     <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'/>
     <!-- Theme style -->
     <link href="./static/css/style.css" rel="stylesheet" type="text/css" />
 
@@ -128,7 +128,7 @@
 
                 </section>
                     <!-- Main row -->
-                    <div class="textAndDefn">
+                    <div class="row">
                         <div class = "col-md-1"></div>
                         <div class="col-md-6">
                             <!--earning graph start-->
@@ -173,16 +173,10 @@
                         </div>
                     </div>
 
-
-
-
-
-
-
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <script src="./static/js/jquery.min.js" type="text/javascript"></script>
-         <script src="./static/js/mainScript.js" type="javascript"> </script>
+         <!--script src="./static/js/mainScript.js" type="javascript"> </script-->
 
         <!-- jQuery UI 1.10.3 -->
         <script src="./static/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
@@ -215,7 +209,7 @@
            $("#butR").click(function() {
             $('#butD').show();
              $("#butR").hide();
-             $("#defTitle").css("width","350px");
+             //$("#defTitle").css("width","350px");
              console.log($("#defTitle").css("width"));
              console.log("UO");
              //$(".panel-body").fadeOut();
@@ -230,13 +224,24 @@
              //document.getElementById("leftTable").className = "col-md-11"
             //document.getElementById("rightTable").className = "col-md-1"
            });
-         console.log("WORKING");
+         //console.log("WORKING");
            //$(".glyphicon glyphicon-chevron-down")
          });
 </script>
 
 <script type="text/javascript">
+console.log("run py");
+
+function runPyScript(input){
+        $.ajax({
+            type: "POST",
+            url: "./scripts/annotations.py",
+            async: false,
+        });
+    }
+    console.log("ran the py");
     var impPhrases = ["Hello my", "This is", "Woohoo"];
+    
     var textBlock = "This is a textblock to use as a test. Hello my name is JarGone. Let me make your jargon disappear. Woohoo.";
 
     var sentences = [];
