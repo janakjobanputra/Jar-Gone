@@ -71,9 +71,9 @@
                           Important
                         </header>
                         <div class="panel-body">
-                            <li id="list0"> Do This </li>
-                            <li id="list1"> And This </li>
-                            <li id="list2"> And Then This </li>
+                            <li id="list0">  </li>
+                            <li id="list1">  </li>
+                            <li id="list2">  </li>
                         </div>
                     </section>
                 </div>
@@ -137,7 +137,9 @@
                                   <header class="panel-heading" style = "padding: 10px">
                                       Routine Checkup
                                   </header>
-                                  <div class="panel-body"></div>
+                                  <div class="panel-body">
+                                    <p id="routine"> </p>
+                                  </div>
                               </section>
                             </div>
                                         <!--earning graph end-->
@@ -253,6 +255,7 @@
             currentStream += textBlock[i];
         }
     }
+    document.getElementById("routine").innerHTML = textBlock;
 
     for (i = 0; i < sentences.length && j < impPhrases.length; i++) {
         if(sentences[i].indexOf(impPhrases[j]) !== -1) {
