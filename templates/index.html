@@ -362,6 +362,7 @@ function hoverAction(word) {
     console.log("splitting on", splitting);
     var id = "#"+splitting[0];
     $(id).css("font-weight", "bold");
+    $(id).css("background-color", "#FFFF00");
     //console.log(splitting[0]);
 }
 
@@ -371,6 +372,7 @@ function offHoverAction(word) {
     console.log("splitting off", splitting);
     var id = "#"+splitting[0];
     $(id).css("font-weight", "");
+    $(id).css("background-color", "");
 }
 </script>
 </body>
