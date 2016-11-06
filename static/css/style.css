@@ -638,7 +638,7 @@ body > .header {
 body > .header .navbar {
   height: 50px;
   margin-bottom: 0;
-  margin-left: 220px;
+  margin-left: 0px;
 }
 body > .header .navbar .sidebar-toggle {
   float: left;
@@ -818,7 +818,7 @@ content: '';
     line-height: 20px;
   }
   .navbar .navbar-right {
-    float: right;
+    float: left;
   }
 }
 @media screen and (max-width: 560px) {
@@ -3205,6 +3205,8 @@ vertical-align: top;
 
 .panel {
   border:none;
+  margin-left: 10px;
+  margin-right: 10px;
   /*box-shadow: none;*/
   -webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.05);
   box-shadow: 0 1px 0px rgba(0,0,0,0.05);
