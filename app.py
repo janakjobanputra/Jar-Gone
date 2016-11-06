@@ -1,6 +1,6 @@
 from flask import Flask, render_template, send_from_directory
 #from scripts import annotations
-
+from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__, static_url_path='/static')

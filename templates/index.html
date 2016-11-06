@@ -242,7 +242,19 @@ function runPyScript(input){
     console.log("ran the py");
     var impPhrases = ["Hello my", "This is", "Woohoo"];
     
-    var textBlock = "This is a textblock to use as a test. Hello my name is JarGone. Let me make your jargon disappear. Woohoo.";
+    var textBlock;
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:5000/getTxt",
+        success:function(data) {
+            textBlock = data;
+            console.log("textBlock", textBlock);
+            return data;
+        },
+        async: false,
+    });
+
+    console.log("textBlock outside", textBlock);
 
     var sentences = [];
     var currentStream = "";
