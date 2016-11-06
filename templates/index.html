@@ -75,9 +75,9 @@
                           Important
                         </header>
                         <div class="panel-body">
-                            <li id="list1"> Do This </li>
-                            <li id="list2"> And This </li>
-                            <li id="list3"> And Then This </li>
+                            <li id="list0"> Do This </li>
+                            <li id="list1"> And This </li>
+                            <li id="list2"> And Then This </li>
                         </div>
                     </section>
                 </div>
@@ -259,18 +259,14 @@
             currentStream += textBlock[i];
         }
     }
-    console.log(sentences.length);
+
     for (i = 0; i < sentences.length && j < impPhrases.length; i++) {
-        console.log(sentences[i]);
-        console.log(impPhrases[j]);
         if(sentences[i].indexOf(impPhrases[j]) !== -1) {
-            console.log(sentences[i]);
-            document.getElementById("list"+i).innerHTML = sentences[i];
+
+            document.getElementById("list"+j).innerHTML = sentences[i];
             j++;
             i = -1;
         }
-        console.log(i);
-        console.log(j);
     }
             // Chart.defaults.global.responsive = true;
 </script>
