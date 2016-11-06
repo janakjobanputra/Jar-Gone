@@ -135,7 +135,7 @@
                             <div id="leftTable" class="mainTextBody">
                               <section class="panel">
                                   <header class="panel-heading" style = "padding: 10px">
-                                      <b>Routine Checkup</b>
+                                      <b>Dermatology Consultation</b>
                                   </header>
                                   <div class="panel-body">
                                     <p id="routine"> </p>
@@ -280,6 +280,7 @@ function runPyScript(input){
 
     for(i = 0; i < jsonDefns.length; i++) {
         document.getElementById("def"+i).innerHTML = jsonDefns[i].word + " : " + jsonDefns[i].defn;
+        //$("#def" + i).append("<a href = '' >" + jsonDefns[i].word + " : " + jsonDefns[i].defn + "</a>");
     }
 
     //console.log("textBlock outside", textBlock);
