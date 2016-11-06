@@ -20,8 +20,13 @@ def getTxt():
 def getAnnotations():
 	print("IN ANNOTATIONS")
 	result  = annotations.get_definitions(annotations.open_file())
-	print("RESULT",  result)
-	return result;
+	print("RESULT:\n",  result)
+
+	print("FINISHED", type(result))
+	thefile = open('test.json', 'w')
+	for item in result:
+ 		thefile.write("%s\n" % item)
+	return str(result);
 
 
 if __name__ == '__main__':
