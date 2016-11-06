@@ -43,19 +43,15 @@ def get_definitions(text_to_annotate):
                 # print annotation_dict
 
     annotations.append(annotation_dict)
-<<<<<<< Updated upstream
     # print json.dumps(annotations)
 
     return annotations
-=======
-<<<<<<< HEAD
     #print json.dumps(annotations)
-=======
+
     # print json.dumps(annotations)
 
     return annotations
->>>>>>> origin/Website
->>>>>>> Stashed changes
+
 
 
 # TEST - open file
