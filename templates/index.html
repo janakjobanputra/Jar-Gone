@@ -269,7 +269,7 @@ function runPyScript(input){
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:5000/getTxt",
+        url: "/getTxt",
         success:function(data) {
             textBlock = data;
             //console.log("textBlock", textBlock);
