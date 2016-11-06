@@ -1,5 +1,6 @@
 from flask import Flask, render_template, send_from_directory
-from scripts import annotations
+#from scripts import annotations
+
 
 
 app = Flask(__name__, static_url_path='/static')
