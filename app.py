@@ -10,10 +10,6 @@ def home():
     message = 'Welcome to Jar-Gone'
     return render_template('index.html', message=message)
 
-@app.route('/voice')
-def voiceInput():
-    return render_template('voiceInput.html');
-
 
 if __name__ == '__main__':
     app.debug = True
