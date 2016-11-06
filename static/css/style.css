@@ -896,6 +896,7 @@ content: '';
 .user-panel {
   padding: 10px;
 }
+
 .user-panel:before,
 .user-panel:after {
   display: table;
@@ -3202,7 +3203,17 @@ vertical-align: top;
   color: #a7a7a7;
   margin-left: 10px;
 }
-
+.mainTextBody {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.definitions {
+  border:none;
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+}
 .panel {
   border:none;
   margin-left: 10px;
