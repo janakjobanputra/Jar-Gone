@@ -9,12 +9,13 @@ app = Flask(__name__, static_url_path='/static')
 @app.route('/')
 def home():
     message = 'Welcome to Jar-Gone'
+    print ("home page")
     return render_template('index.html', message=message)
 
 @app.route('/getTxt')
 def getTxt():
-	# print ("GOT HERE")
-	return send_from_directory("/data", "sampleTextBlock.txt")
+	print ("GOT HERE")
+	return send_from_directory('static', 'data/medical_consult.txt')
 
 @app.route('/getAnnotations')
 def getAnnotations():
